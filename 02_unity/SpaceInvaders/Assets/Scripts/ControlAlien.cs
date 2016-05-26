@@ -4,8 +4,9 @@ using UnityEngine.SceneManagement;
 
 public class ControlAlien : MonoBehaviour
 {
-	// Conexión al marcador, para poder actualizarlo
-	private GameObject marcador;
+ 
+    // Conexión al marcador, para poder actualizarlo
+    private GameObject marcador;
 
 	// Por defecto, 100 puntos por cada alien
 	private int puntos = 100;
@@ -28,13 +29,15 @@ public class ControlAlien : MonoBehaviour
 	{
 	
 	}
-
-	void OnCollisionEnter2D (Collision2D coll)
+   
+    void OnCollisionEnter2D (Collision2D coll)
 	{
-		// Detectar la colisión entre el alien y otros elementos
+        // Detectar la colisión entre el alien y otros elementos
 
-		// Necesitamos saber contra qué hemos chocado
-		if (coll.gameObject.tag == "disparo") {
+        // Necesitamos saber contra qué hemos chocado
+        
+
+        if (coll.gameObject.tag == "disparo") {
 
 			// Sonido de explosión
 			GetComponent<AudioSource> ().Play ();
@@ -49,8 +52,11 @@ public class ControlAlien : MonoBehaviour
 			efectoExplosion.GetComponent<AudioSource> ().Play ();
 			Destroy (gameObject);
 
+          
+
 		} else if (coll.gameObject.tag == "nave") {
-			SceneManager.LoadScene ("Nivel1");
+			SceneManager.LoadScene ("GameOver");
 		}
+       
 	}
 }
